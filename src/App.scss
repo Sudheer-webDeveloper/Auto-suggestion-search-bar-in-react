@@ -1,0 +1,80 @@
+@mixin flexer($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  @include flexer(row);
+  height: 100vh;
+  background: rgb(23, 23, 23);
+  position: relative;
+}
+
+// Input search.jsx
+.search {
+  @include flexer(column);
+  .input {
+    width: 50vw;
+    margin: auto;
+    border-radius: 10px;
+    background: rgb(170, 24, 24);
+    @include flexer(row);
+    padding: 14px;
+    gap: 10px;
+    position: fixed;
+    top: 100px;
+
+    .search-icon {
+      font-size: 1.5rem;
+      color: rgb(255, 255, 255);
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1.5rem;
+      color: white;
+    }
+    input:placeholder-shown {
+      color: white;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  }
+}
+
+// suggestions.jsx
+
+.sugesstions {
+  padding: 14px;
+  border-radius: 20px;
+  @include flexer(column);
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  width: 50vw;
+  background: white;
+  gap: 5px;
+  position: fixed;
+  top: 150px;
+  left: 25vw;
+
+  li {
+    list-style: none;
+    color: black;
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  li:hover {
+    background: #ddd;
+    cursor: pointer;
+  }
+}
